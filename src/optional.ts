@@ -200,6 +200,11 @@ class Optional<T, N extends null = null> extends Enum<{ Some: T; None: N }> {
     }
     return [None(), None()];
   }
+
+  match<R>(matcher: { Some: (arg0: T) => R; None: () => R }): R {
+    if (this.value[0] == "Some") return matcher.Some(this.value[1] as T);
+    else return matcher.None();
+  }
 }
 /**
  * Instantiates an `Optional` with the `Some` variant.
@@ -209,7 +214,7 @@ class Optional<T, N extends null = null> extends Enum<{ Some: T; None: N }> {
  * ```ts
  * let count = Some(1);
  * count = count.map((c) => c + 1);
- * count.match("Some", v => console.log(v)); // 2
+ * count.match_on("Some", v => console.log(v)); // 2
  * ```
  *
  */
@@ -223,9 +228,9 @@ export function Some<T>(value: T) {
  * @example
  * ```ts
  * let count = None();
- * count.match("None", () => console.log("Its a none!")); // Its a none
+ * count.match_on("None", () => console.log("Its a none!")); // Its a none
  * count.insert(2);
- * count.match("Some", v => console.log(v)); // 2
+ * count.match_on("Some", v => console.log(v)); // 2
  * ```
  *
  */

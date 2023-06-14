@@ -25,7 +25,7 @@ declare class Result<T, E> extends Enum<{
  *   else return Err(new APIError("Bad Request"));
  * }
  * let count = readFromDB();
- * count.match("Ok", v => console.log(v)); // 2
+ * count.match_on("Ok", v => console.log(v)); // 2
  * ```
  *
  */
@@ -40,7 +40,7 @@ export declare function Ok<T, E>(value: T): Result<T, E>;
  *   else return Err(new APIError("Bad Request"));
  * }
  * let count = readFromDB();
- * count.match("Err", err => console.log(v)); // APIError
+ * count.match_on("Err", err => console.log(v)); // APIError
  * ```
  *
  */

@@ -14,7 +14,7 @@ class Enum<VS extends Record<string, unknown>> {
    * @param on The key you want to match on.
    * @param matcher The match body
    */
-  match<I extends keyof VS, V extends VS[I]>(
+  match_on<I extends keyof VS, V extends VS[I]>(
     on: I,
     matcher: (arg0: V) => void
   ) {

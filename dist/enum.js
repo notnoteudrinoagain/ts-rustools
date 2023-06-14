@@ -14,7 +14,7 @@ class Enum {
      * @param on The key you want to match on.
      * @param matcher The match body
      */
-    match(on, matcher) {
+    match_on(on, matcher) {
         if (this.value[0] == on)
             matcher(this.value[1]);
     }

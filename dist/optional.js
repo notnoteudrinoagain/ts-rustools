@@ -216,6 +216,12 @@ class Optional extends Enum {
         }
         return [None(), None()];
     }
+    match(matcher) {
+        if (this.value[0] == "Some")
+            return matcher.Some(this.value[1]);
+        else
+            return matcher.None();
+    }
 }
 /**
  * Instantiates an `Optional` with the `Some` variant.
@@ -225,7 +231,7 @@ class Optional extends Enum {
  * ```ts
  * let count = Some(1);
  * count = count.map((c) => c + 1);
- * count.match("Some", v => console.log(v)); // 2
+ * count.match_on("Some", v => console.log(v)); // 2
  * ```
  *
  */
@@ -238,9 +244,9 @@ export function Some(value) {
  * @example
  * ```ts
  * let count = None();
- * count.match("None", () => console.log("Its a none!")); // Its a none
+ * count.match_on("None", () => console.log("Its a none!")); // Its a none
  * count.insert(2);
- * count.match("Some", v => console.log(v)); // 2
+ * count.match_on("Some", v => console.log(v)); // 2
  * ```
  *
  */
