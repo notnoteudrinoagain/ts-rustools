@@ -1,5 +1,5 @@
 import Enum from "./enum";
-import { None, Some } from "./optional";
+import Optional, { None, Some } from "./optional";
 
 /**
  * Result is a utility class that represents either success ([`Ok`]) or failure ([`Err`])
@@ -13,7 +13,7 @@ class Result<T, E> extends Enum<{ Ok: T; Err: E }> {
    *
    * mapping `Ok(v)` to `Some(v)`, and `Err` to `None`.
    */
-  ok() {
+  ok(): Optional<T, null> {
     return this.value[0] == "Ok" ? Some(this.value[1] as T) : None();
   }
 }

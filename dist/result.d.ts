@@ -1,4 +1,5 @@
 import Enum from "./enum";
+import Optional from "./optional";
 /**
  * Result is a utility class that represents either success ([`Ok`]) or failure ([`Err`])
  */
@@ -12,7 +13,7 @@ declare class Result<T, E> extends Enum<{
      *
      * mapping `Ok(v)` to `Some(v)`, and `Err` to `None`.
      */
-    ok(): import("./optional").default<unknown, null>;
+    ok(): Optional<T, null>;
 }
 /**
  * Instantiates a `Result` with the `Ok` variant.

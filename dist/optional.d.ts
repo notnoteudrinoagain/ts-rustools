@@ -110,7 +110,7 @@ declare class Optional<T, N extends null = null> extends Enum<{
     /**
      * Takes the value out of the option, leaving `None` in its place.
      */
-    take(): Optional<unknown, null>;
+    take(): Optional<T, null>;
     /**
      * Replaces the actual value in the option by the value given in parameter, returning the old value if present, leaving a `Some` in its place.
      */
