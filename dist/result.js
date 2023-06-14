@@ -50,4 +50,15 @@ export function Ok(value) {
 export function Err(err) {
     return new Result(["Err", err]);
 }
+/**
+ * A helper function that turns a fallible function's into a Result safe version.
+ */
+export function intoResult(f) {
+    try {
+        return Ok(f());
+    }
+    catch (e) {
+        return Err(String(e));
+    }
+}
 export default Result;

@@ -44,4 +44,8 @@ export declare function Ok<T, E>(value: T): Result<T, E>;
  *
  */
 export declare function Err<T, E>(err: E): Result<T, E>;
+/**
+ * A helper function that turns a fallible function's into a Result safe version.
+ */
+export declare function intoResult<T>(f: () => T): Result<T, string>;
 export default Result;
