@@ -1,0 +1,17 @@
+{
+  "name": "ts-rustools",
+  "description": "The repository for ts-rustools",
+  "version": "1.0.2",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.1.3"
+  }
+}
